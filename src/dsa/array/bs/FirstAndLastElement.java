@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class FirstAndLastElement {
     public static void main(String[] args) {
-        int[] arr = {5, 7, 7, 8, 8,8, 12, 15};
+        int[] arr = {5, 7, 7, 8, 8, 8, 12, 15};
         int[] ans = solution(arr, 8);
         System.out.println(Arrays.toString(ans));
     }
@@ -46,5 +46,26 @@ public class FirstAndLastElement {
         }
 
         return new int[] {firstElement, lastElement};
+    }
+
+    public static int[] bruteforceSolution(int[] arr, int target){
+        int firstPos = -1;
+        int lastPos = -1;
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                firstPos = i;
+                break;
+            }
+        }
+
+        for(int i = arr.length-1; i >= 0; i--){
+            if(arr[i] == target){
+                lastPos = i;
+                break;
+            }
+        }
+
+        return new int[] {firstPos, lastPos};
     }
 }
